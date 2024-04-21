@@ -7,7 +7,7 @@ pub use counter::*;
     clippy::upper_case_acronyms,
     clippy::type_complexity,
     dead_code,
-    non_camel_case_types,
+    non_camel_case_types
 )]
 pub mod counter {
     #[allow(deprecated)]
@@ -17,83 +17,91 @@ pub mod counter {
             functions: ::core::convert::From::from([
                 (
                     ::std::borrow::ToOwned::to_owned("increment"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("increment"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
-                        },
-                    ],
+                    ::std::vec![::ethers::core::abi::ethabi::Function {
+                        name: ::std::borrow::ToOwned::to_owned("increment"),
+                        inputs: ::std::vec![],
+                        outputs: ::std::vec![],
+                        constant: ::core::option::Option::None,
+                        state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
+                    },],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned("number"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("number"),
-                            inputs: ::std::vec![],
-                            outputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::string::String::new(),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
-                                        256usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("uint256"),
-                                    ),
-                                },
-                            ],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                        },
-                    ],
+                    ::std::vec![::ethers::core::abi::ethabi::Function {
+                        name: ::std::borrow::ToOwned::to_owned("number"),
+                        inputs: ::std::vec![],
+                        outputs: ::std::vec![::ethers::core::abi::ethabi::Param {
+                            name: ::std::string::String::new(),
+                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
+                            internal_type: ::core::option::Option::Some(
+                                ::std::borrow::ToOwned::to_owned("uint256"),
+                            ),
+                        },],
+                        constant: ::core::option::Option::None,
+                        state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
+                    },],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned("setNumber"),
-                    ::std::vec![
-                        ::ethers::core::abi::ethabi::Function {
-                            name: ::std::borrow::ToOwned::to_owned("setNumber"),
-                            inputs: ::std::vec![
-                                ::ethers::core::abi::ethabi::Param {
-                                    name: ::std::borrow::ToOwned::to_owned("newNumber"),
-                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
-                                        256usize,
-                                    ),
-                                    internal_type: ::core::option::Option::Some(
-                                        ::std::borrow::ToOwned::to_owned("uint256"),
-                                    ),
-                                },
-                            ],
-                            outputs: ::std::vec![],
-                            constant: ::core::option::Option::None,
-                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
-                        },
-                    ],
+                    ::std::vec![::ethers::core::abi::ethabi::Function {
+                        name: ::std::borrow::ToOwned::to_owned("setNumber"),
+                        inputs: ::std::vec![::ethers::core::abi::ethabi::Param {
+                            name: ::std::borrow::ToOwned::to_owned("newNumber"),
+                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
+                            internal_type: ::core::option::Option::Some(
+                                ::std::borrow::ToOwned::to_owned("uint256"),
+                            ),
+                        },],
+                        outputs: ::std::vec![],
+                        constant: ::core::option::Option::None,
+                        state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
+                    },],
                 ),
             ]),
-            events: ::std::collections::BTreeMap::new(),
+            events: ::core::convert::From::from([
+                (
+                    ::std::borrow::ToOwned::to_owned("NumberSet"),
+                    ::std::vec![::ethers::core::abi::ethabi::Event {
+                        name: ::std::borrow::ToOwned::to_owned("NumberSet"),
+                        inputs: ::std::vec![::ethers::core::abi::ethabi::EventParam {
+                            name: ::std::borrow::ToOwned::to_owned("number"),
+                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
+                            indexed: true,
+                        },],
+                        anonymous: false,
+                    },],
+                ),
+                (
+                    ::std::borrow::ToOwned::to_owned("NumberUpdated"),
+                    ::std::vec![::ethers::core::abi::ethabi::Event {
+                        name: ::std::borrow::ToOwned::to_owned("NumberUpdated"),
+                        inputs: ::std::vec![::ethers::core::abi::ethabi::EventParam {
+                            name: ::std::borrow::ToOwned::to_owned("number"),
+                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
+                            indexed: true,
+                        },],
+                        anonymous: false,
+                    },],
+                ),
+            ]),
             errors: ::std::collections::BTreeMap::new(),
             receive: false,
             fallback: false,
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static COUNTER_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
-        __abi,
-    );
+    pub static COUNTER_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> =
+        ::ethers::contract::Lazy::new(__abi);
     #[rustfmt::skip]
-    const __BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x0FW_\x80\xFD[P`\xEC\x80a\0\x1C_9_\xF3\xFE`\x80`@R4\x80\x15`\x0EW_\x80\xFD[P`\x046\x10`:W_5`\xE0\x1C\x80c?\xB5\xC1\xCB\x14`>W\x80c\x83\x81\xF5\x8A\x14`OW\x80c\xD0\x9D\xE0\x8A\x14`hW[_\x80\xFD[`M`I6`\x04`}V[_UV[\0[`V_T\x81V[`@Q\x90\x81R` \x01`@Q\x80\x91\x03\x90\xF3[`M_\x80T\x90\x80`v\x83`\x93V[\x91\x90PUPV[_` \x82\x84\x03\x12\x15`\x8CW_\x80\xFD[P5\x91\x90PV[_`\x01\x82\x01`\xAFWcNH{q`\xE0\x1B_R`\x11`\x04R`$_\xFD[P`\x01\x01\x90V\xFE\xA2dipfsX\"\x12 \xD2\x1Fv\xB1s\xCD\xA24\x16\x05s\xCDN1\xDE^\xBA\x93\xDC^\xE8\xED\xE0\xE1\xF2\x9D\xFE\xAC\x0Bu.\x97dsolcC\0\x08\x17\x003";
+    const __BYTECODE: &[u8] = b"`\x80`@R4\x80\x15`\x0EW_\x80\xFD[Pa\x01Z\x80a\0\x1C_9_\xF3\xFE`\x80`@R4\x80\x15a\0\x0FW_\x80\xFD[P`\x046\x10a\0?W_5`\xE0\x1C\x80c?\xB5\xC1\xCB\x14a\0CW\x80c\x83\x81\xF5\x8A\x14a\0XW\x80c\xD0\x9D\xE0\x8A\x14a\0rW[_\x80\xFD[a\0Va\0Q6`\x04a\0\xE9V[a\0zV[\0[a\0`_T\x81V[`@Q\x90\x81R` \x01`@Q\x80\x91\x03\x90\xF3[a\0Va\0\xA9V[_\x81\x81U`@Q\x82\x91\x7F\x9E\xC8%Ii\xD1\x97N\xAC\x8Ct\xAF\xB0\xC05\x95\xB4\xFF\xE0\xA1\xD7\xAD\x8A\x7F\x82\xED1\xB9\xC8T%\x91\x91\xA2PV[_\x80T\x90\x80a\0\xB7\x83a\x01\0V[\x90\x91UPP_\x80T`@Q\x90\x91\x7F\x93\x9F'\x83\xF4\xB9\x93s\xBD\x9Bi\x12\xAF\xF8\xF71n\xA1A\xB9\x8E\xB0.G\xC8\xA9k\xDA\xE0\xD6T\xB3\x91\xA2V[_` \x82\x84\x03\x12\x15a\0\xF9W_\x80\xFD[P5\x91\x90PV[_`\x01\x82\x01a\x01\x1DWcNH{q`\xE0\x1B_R`\x11`\x04R`$_\xFD[P`\x01\x01\x90V\xFE\xA2dipfsX\"\x12 \xA0r\xD5\xB2L\x16xO\xC3\x02\t\xEF\xF7]O\xC63\xFEz\xBA\xB2\xD5\xB5\xED?eI\x82\\\x0C\xF2wdsolcC\0\x08\x19\x003";
     /// The bytecode of the contract.
-    pub static COUNTER_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
-        __BYTECODE,
-    );
+    pub static COUNTER_BYTECODE: ::ethers::core::types::Bytes =
+        ::ethers::core::types::Bytes::from_static(__BYTECODE);
     #[rustfmt::skip]
-    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R4\x80\x15`\x0EW_\x80\xFD[P`\x046\x10`:W_5`\xE0\x1C\x80c?\xB5\xC1\xCB\x14`>W\x80c\x83\x81\xF5\x8A\x14`OW\x80c\xD0\x9D\xE0\x8A\x14`hW[_\x80\xFD[`M`I6`\x04`}V[_UV[\0[`V_T\x81V[`@Q\x90\x81R` \x01`@Q\x80\x91\x03\x90\xF3[`M_\x80T\x90\x80`v\x83`\x93V[\x91\x90PUPV[_` \x82\x84\x03\x12\x15`\x8CW_\x80\xFD[P5\x91\x90PV[_`\x01\x82\x01`\xAFWcNH{q`\xE0\x1B_R`\x11`\x04R`$_\xFD[P`\x01\x01\x90V\xFE\xA2dipfsX\"\x12 \xD2\x1Fv\xB1s\xCD\xA24\x16\x05s\xCDN1\xDE^\xBA\x93\xDC^\xE8\xED\xE0\xE1\xF2\x9D\xFE\xAC\x0Bu.\x97dsolcC\0\x08\x17\x003";
+    const __DEPLOYED_BYTECODE: &[u8] = b"`\x80`@R4\x80\x15a\0\x0FW_\x80\xFD[P`\x046\x10a\0?W_5`\xE0\x1C\x80c?\xB5\xC1\xCB\x14a\0CW\x80c\x83\x81\xF5\x8A\x14a\0XW\x80c\xD0\x9D\xE0\x8A\x14a\0rW[_\x80\xFD[a\0Va\0Q6`\x04a\0\xE9V[a\0zV[\0[a\0`_T\x81V[`@Q\x90\x81R` \x01`@Q\x80\x91\x03\x90\xF3[a\0Va\0\xA9V[_\x81\x81U`@Q\x82\x91\x7F\x9E\xC8%Ii\xD1\x97N\xAC\x8Ct\xAF\xB0\xC05\x95\xB4\xFF\xE0\xA1\xD7\xAD\x8A\x7F\x82\xED1\xB9\xC8T%\x91\x91\xA2PV[_\x80T\x90\x80a\0\xB7\x83a\x01\0V[\x90\x91UPP_\x80T`@Q\x90\x91\x7F\x93\x9F'\x83\xF4\xB9\x93s\xBD\x9Bi\x12\xAF\xF8\xF71n\xA1A\xB9\x8E\xB0.G\xC8\xA9k\xDA\xE0\xD6T\xB3\x91\xA2V[_` \x82\x84\x03\x12\x15a\0\xF9W_\x80\xFD[P5\x91\x90PV[_`\x01\x82\x01a\x01\x1DWcNH{q`\xE0\x1B_R`\x11`\x04R`$_\xFD[P`\x01\x01\x90V\xFE\xA2dipfsX\"\x12 \xA0r\xD5\xB2L\x16xO\xC3\x02\t\xEF\xF7]O\xC63\xFEz\xBA\xB2\xD5\xB5\xED?eI\x82\\\x0C\xF2wdsolcC\0\x08\x19\x003";
     /// The deployed bytecode of the contract.
-    pub static COUNTER_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
-        __DEPLOYED_BYTECODE,
-    );
+    pub static COUNTER_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes =
+        ::ethers::core::types::Bytes::from_static(__DEPLOYED_BYTECODE);
     pub struct Counter<M>(::ethers::contract::Contract<M>);
     impl<M> ::core::clone::Clone for Counter<M> {
         fn clone(&self) -> Self {
@@ -123,13 +131,7 @@ pub mod counter {
             address: T,
             client: ::std::sync::Arc<M>,
         ) -> Self {
-            Self(
-                ::ethers::contract::Contract::new(
-                    address.into(),
-                    COUNTER_ABI.clone(),
-                    client,
-                ),
-            )
+            Self(::ethers::contract::Contract::new(address.into(), COUNTER_ABI.clone(), client))
         }
         /// Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it.
         /// Returns a new instance of a deployer that returns an instance of this contract after sending the transaction
@@ -193,11 +195,109 @@ pub mod counter {
                 .method_hash([63, 181, 193, 203], new_number)
                 .expect("method not found (this should never happen)")
         }
+        ///Gets the contract's `NumberSet` event
+        pub fn number_set_filter(
+            &self,
+        ) -> ::ethers::contract::builders::Event<::std::sync::Arc<M>, M, NumberSetFilter> {
+            self.0.event()
+        }
+        ///Gets the contract's `NumberUpdated` event
+        pub fn number_updated_filter(
+            &self,
+        ) -> ::ethers::contract::builders::Event<::std::sync::Arc<M>, M, NumberUpdatedFilter>
+        {
+            self.0.event()
+        }
+        /// Returns an `Event` builder for all the events of this contract.
+        pub fn events(
+            &self,
+        ) -> ::ethers::contract::builders::Event<::std::sync::Arc<M>, M, CounterEvents> {
+            self.0.event_with_filter(::core::default::Default::default())
+        }
     }
-    impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-    for Counter<M> {
+    impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>> for Counter<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
+        }
+    }
+    #[derive(
+        Clone,
+        ::ethers::contract::EthEvent,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+    )]
+    #[ethevent(name = "NumberSet", abi = "NumberSet(uint256)")]
+    pub struct NumberSetFilter {
+        #[ethevent(indexed)]
+        pub number: ::ethers::core::types::U256,
+    }
+    #[derive(
+        Clone,
+        ::ethers::contract::EthEvent,
+        ::ethers::contract::EthDisplay,
+        serde::Serialize,
+        serde::Deserialize,
+        Default,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+    )]
+    #[ethevent(name = "NumberUpdated", abi = "NumberUpdated(uint256)")]
+    pub struct NumberUpdatedFilter {
+        #[ethevent(indexed)]
+        pub number: ::ethers::core::types::U256,
+    }
+    ///Container type for all of the contract's events
+    #[derive(
+        Clone,
+        ::ethers::contract::EthAbiType,
+        serde::Serialize,
+        serde::Deserialize,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+    )]
+    pub enum CounterEvents {
+        NumberSetFilter(NumberSetFilter),
+        NumberUpdatedFilter(NumberUpdatedFilter),
+    }
+    impl ::ethers::contract::EthLogDecode for CounterEvents {
+        fn decode_log(
+            log: &::ethers::core::abi::RawLog,
+        ) -> ::core::result::Result<Self, ::ethers::core::abi::Error> {
+            if let Ok(decoded) = NumberSetFilter::decode_log(log) {
+                return Ok(CounterEvents::NumberSetFilter(decoded));
+            }
+            if let Ok(decoded) = NumberUpdatedFilter::decode_log(log) {
+                return Ok(CounterEvents::NumberUpdatedFilter(decoded));
+            }
+            Err(::ethers::core::abi::Error::InvalidData)
+        }
+    }
+    impl ::core::fmt::Display for CounterEvents {
+        fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+            match self {
+                Self::NumberSetFilter(element) => ::core::fmt::Display::fmt(element, f),
+                Self::NumberUpdatedFilter(element) => ::core::fmt::Display::fmt(element, f),
+            }
+        }
+    }
+    impl ::core::convert::From<NumberSetFilter> for CounterEvents {
+        fn from(value: NumberSetFilter) -> Self {
+            Self::NumberSetFilter(value)
+        }
+    }
+    impl ::core::convert::From<NumberUpdatedFilter> for CounterEvents {
+        fn from(value: NumberUpdatedFilter) -> Self {
+            Self::NumberUpdatedFilter(value)
         }
     }
     ///Container type for all input parameters for the `increment` function with signature `increment()` and selector `0xd09de08a`
@@ -211,7 +311,7 @@ pub mod counter {
         Debug,
         PartialEq,
         Eq,
-        Hash
+        Hash,
     )]
     #[ethcall(name = "increment", abi = "increment()")]
     pub struct IncrementCall;
@@ -226,7 +326,7 @@ pub mod counter {
         Debug,
         PartialEq,
         Eq,
-        Hash
+        Hash,
     )]
     #[ethcall(name = "number", abi = "number()")]
     pub struct NumberCall;
@@ -241,7 +341,7 @@ pub mod counter {
         Debug,
         PartialEq,
         Eq,
-        Hash
+        Hash,
     )]
     #[ethcall(name = "setNumber", abi = "setNumber(uint256)")]
     pub struct SetNumberCall {
@@ -256,7 +356,7 @@ pub mod counter {
         Debug,
         PartialEq,
         Eq,
-        Hash
+        Hash,
     )]
     pub enum CounterCalls {
         Increment(IncrementCall),
@@ -268,19 +368,13 @@ pub mod counter {
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
             let data = data.as_ref();
-            if let Ok(decoded) = <IncrementCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
+            if let Ok(decoded) = <IncrementCall as ::ethers::core::abi::AbiDecode>::decode(data) {
                 return Ok(Self::Increment(decoded));
             }
-            if let Ok(decoded) = <NumberCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
+            if let Ok(decoded) = <NumberCall as ::ethers::core::abi::AbiDecode>::decode(data) {
                 return Ok(Self::Number(decoded));
             }
-            if let Ok(decoded) = <SetNumberCall as ::ethers::core::abi::AbiDecode>::decode(
-                data,
-            ) {
+            if let Ok(decoded) = <SetNumberCall as ::ethers::core::abi::AbiDecode>::decode(data) {
                 return Ok(Self::SetNumber(decoded));
             }
             Err(::ethers::core::abi::Error::InvalidData.into())
@@ -289,13 +383,9 @@ pub mod counter {
     impl ::ethers::core::abi::AbiEncode for CounterCalls {
         fn encode(self) -> Vec<u8> {
             match self {
-                Self::Increment(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
+                Self::Increment(element) => ::ethers::core::abi::AbiEncode::encode(element),
                 Self::Number(element) => ::ethers::core::abi::AbiEncode::encode(element),
-                Self::SetNumber(element) => {
-                    ::ethers::core::abi::AbiEncode::encode(element)
-                }
+                Self::SetNumber(element) => ::ethers::core::abi::AbiEncode::encode(element),
             }
         }
     }
@@ -334,7 +424,7 @@ pub mod counter {
         Debug,
         PartialEq,
         Eq,
-        Hash
+        Hash,
     )]
     pub struct NumberReturn(pub ::ethers::core::types::U256);
 }

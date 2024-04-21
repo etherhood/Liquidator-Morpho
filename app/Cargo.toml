@@ -7,6 +7,10 @@ edition = "2021"
 
 [dependencies]
 bindings = { workspace = true } 
-ethers = { version = "2", default-features = false, features = ["rustls"] }
+ethers = { version = "2", default-features = true, features = ["rustls", "ws"] }
 eyre = "0.6"
 tokio = { version = "1.19", features = ["macros", "rt-multi-thread"] }
+log = { version = "0.4.21", features = ["std", "serde"] }
+env_logger = { version = "0.11.3" }
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
+serde = { version = "1.0.196", features = ["derive"] }

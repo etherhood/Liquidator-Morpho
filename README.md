@@ -1,103 +1,18 @@
-# Foundry Rust Monorepo Template
+# Morpho Liquidator
+![Rust](https://github.com/etherhood/Liquidator-Morpho/workflows/Rust/badge.svg)
+![Solidity](https://github.com/etherhood/Liquidator-Morpho/workflows/Solidity/badge.svg)
 
-![Rust](https://github.com/gakonst/foundry-rust-template/workflows/Rust/badge.svg)
-![Solidity](https://github.com/gakonst/foundry-rust-template/workflows/Solidity/badge.svg)
-[![Telegram Chat][tg-badge]][tg-url]
+## App
+`app/` folder contains rust repo which index all events from morpho contracts and write it to local morpho.json file and then start listening to new events and new block. Whenever it encounters new positions which are unhealthy, it triggers liquidation for that position using `Liquidator` contract 
 
-[tg-badge]:
-  https://img.shields.io/endpoint?color=neon&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Ffoundry_rs
-[tg-url]: https://t.me/foundry_rs
+# Todo
+- [ ] Abstract out constants to `env` args which can be passed at start time
+- [ ] Integrate 1inch or other solver APIs to fetch swap route when liquidating
+- [ ] Add signer support for provider which send liquidator transaction
+- [ ] Add flashbots support to not allow frontrunning
+- [ ] Add support for minimum value of collateral to filter liquidation opportunities
+- [ ] Add batching of liquidation transaction at end of block processing
+- [ ] Add gas fee calculation to ascertain profitability
+- [ ] Add transaction caching to not send multiple transactions for same position
 
-**Template for quickly getting started with developing Rust applications that
-leverage Foundry for EVM smart contract development.**
-
-Continuous Integration is already set up to test both your Rust and Solidity
-code, as well as ensure formatting and that your Rust bindings match the
-Solidity build artifacts.
-
-## Directory Structure
-
-The project is structured as a mixed Rust workspace with a Foundry project under
-`contracts/` and typesafe auto-generated bindings to the contracts under
-`crates/bindings/`.
-
-```
-├── Cargo.toml
-├── app // <-- Your Rust application logic
-├── contracts // <- The smart contracts + tests using Foundry
-├── crates
-    └── bindings // <-- Generated bindings to the smart contracts' abis (like Typechain)
-```
-
-## Testing
-
-Given the repository contains both Solidity and Rust code, there's 2 different
-workflows.
-
-### Solidity
-
-Forge is using submodules to manage dependencies. Initialize the dependencies:
-
-If you are in the root directory of the project, run:
-
-```bash
-forge install --root ./contracts
-```
-
-If you are in in `contracts/`:
-
-```bash
-forge install
-```
-
-Then, run the tests:
-
-If you are in the root directory of the project, run:
-
-```bash
-forge test --root ./contracts
-```
-
-If you are in in `contracts/`:
-
-```bash
-forge test
-```
-
-### Rust
-
-```
-cargo test
-```
-
-## Generating Rust bindings to the contracts
-
-Rust bindings to the contracts can be generated via `forge bind`, which requires
-first building your contracts:
-
-```
-forge build --root ./contracts
-forge bind --bindings-path ./crates/bindings --root ./contracts --crate-name bindings
-```
-
-Any follow-on calls to `forge bind` will check that the generated bindings match
-the ones under the build files. If you want to re-generate your bindings, pass
-the `--overwrite` flag to your `forge bind` command.
-
-## Installing Foundry
-
-First run the command below to get `foundryup`, the Foundry toolchain installer:
-
-```sh
-curl -L https://foundry.paradigm.xyz | bash
-```
-
-Then, in a new terminal session or after reloading your `PATH`, run it to get
-the latest `forge` and `cast` binaries:
-
-```sh
-foundryup
-```
-
-For more, see the official
-[docs](https://github.com/gakonst/foundry#installation).
+This is not yet ready for production use. PRs welcome.
