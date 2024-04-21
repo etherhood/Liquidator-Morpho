@@ -4,8 +4,6 @@
 //! Do not manually edit these files.
 //! These files may be overwritten by the codegen system at any time.
 pub mod address;
-pub mod counter;
-pub mod events_lib;
 pub mod i_events;
 pub mod i_irm;
 pub mod i_morpho;
