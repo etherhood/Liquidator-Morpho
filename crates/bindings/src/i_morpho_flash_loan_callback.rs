@@ -7,38 +7,44 @@ pub use i_morpho_flash_loan_callback::*;
     clippy::upper_case_acronyms,
     clippy::type_complexity,
     dead_code,
-    non_camel_case_types
+    non_camel_case_types,
 )]
 pub mod i_morpho_flash_loan_callback {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
             constructor: ::core::option::Option::None,
-            functions: ::core::convert::From::from([(
-                ::std::borrow::ToOwned::to_owned("onMorphoFlashLoan"),
-                ::std::vec![::ethers::core::abi::ethabi::Function {
-                    name: ::std::borrow::ToOwned::to_owned("onMorphoFlashLoan"),
-                    inputs: ::std::vec![
-                        ::ethers::core::abi::ethabi::Param {
-                            name: ::std::borrow::ToOwned::to_owned("assets"),
-                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
-                            internal_type: ::core::option::Option::Some(
-                                ::std::borrow::ToOwned::to_owned("uint256"),
-                            ),
-                        },
-                        ::ethers::core::abi::ethabi::Param {
-                            name: ::std::borrow::ToOwned::to_owned("data"),
-                            kind: ::ethers::core::abi::ethabi::ParamType::Bytes,
-                            internal_type: ::core::option::Option::Some(
-                                ::std::borrow::ToOwned::to_owned("bytes"),
-                            ),
+            functions: ::core::convert::From::from([
+                (
+                    ::std::borrow::ToOwned::to_owned("onMorphoFlashLoan"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::Function {
+                            name: ::std::borrow::ToOwned::to_owned("onMorphoFlashLoan"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("assets"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("data"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Bytes,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes"),
+                                    ),
+                                },
+                            ],
+                            outputs: ::std::vec![],
+                            constant: ::core::option::Option::None,
+                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
                         },
                     ],
-                    outputs: ::std::vec![],
-                    constant: ::core::option::Option::None,
-                    state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
-                },],
-            )]),
+                ),
+            ]),
             events: ::std::collections::BTreeMap::new(),
             errors: ::std::collections::BTreeMap::new(),
             receive: false,
@@ -46,8 +52,9 @@ pub mod i_morpho_flash_loan_callback {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static IMORPHOFLASHLOANCALLBACK_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> =
-        ::ethers::contract::Lazy::new(__abi);
+    pub static IMORPHOFLASHLOANCALLBACK_ABI: ::ethers::contract::Lazy<
+        ::ethers::core::abi::Abi,
+    > = ::ethers::contract::Lazy::new(__abi);
     pub struct IMorphoFlashLoanCallback<M>(::ethers::contract::Contract<M>);
     impl<M> ::core::clone::Clone for IMorphoFlashLoanCallback<M> {
         fn clone(&self) -> Self {
@@ -79,11 +86,13 @@ pub mod i_morpho_flash_loan_callback {
             address: T,
             client: ::std::sync::Arc<M>,
         ) -> Self {
-            Self(::ethers::contract::Contract::new(
-                address.into(),
-                IMORPHOFLASHLOANCALLBACK_ABI.clone(),
-                client,
-            ))
+            Self(
+                ::ethers::contract::Contract::new(
+                    address.into(),
+                    IMORPHOFLASHLOANCALLBACK_ABI.clone(),
+                    client,
+                ),
+            )
         }
         ///Calls the contract's `onMorphoFlashLoan` (0x31f57072) function
         pub fn on_morpho_flash_loan(
@@ -97,8 +106,7 @@ pub mod i_morpho_flash_loan_callback {
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-        for IMorphoFlashLoanCallback<M>
-    {
+    for IMorphoFlashLoanCallback<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
@@ -114,7 +122,7 @@ pub mod i_morpho_flash_loan_callback {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     #[ethcall(name = "onMorphoFlashLoan", abi = "onMorphoFlashLoan(uint256,bytes)")]
     pub struct OnMorphoFlashLoanCall {

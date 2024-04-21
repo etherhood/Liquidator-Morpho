@@ -9,7 +9,7 @@
     Debug,
     PartialEq,
     Eq,
-    Hash,
+    Hash
 )]
 pub struct Authorization {
     pub authorizer: ::ethers::core::types::Address,
@@ -29,7 +29,7 @@ pub struct Authorization {
     Debug,
     PartialEq,
     Eq,
-    Hash,
+    Hash
 )]
 pub struct Market {
     pub total_supply_assets: u128,
@@ -50,7 +50,7 @@ pub struct Market {
     Debug,
     PartialEq,
     Eq,
-    Hash,
+    Hash
 )]
 pub struct MarketParams {
     pub loan_token: ::ethers::core::types::Address,
@@ -70,7 +70,7 @@ pub struct MarketParams {
     Debug,
     PartialEq,
     Eq,
-    Hash,
+    Hash
 )]
 pub struct Signature {
     pub v: u8,

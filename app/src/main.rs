@@ -15,10 +15,9 @@ use bindings::{
     },
     liquidator::Liquidator,
 };
-use ethers::prelude::*;
 use ethers::{
     abi::RawLog,
-    prelude::Middleware,
+    prelude::{Middleware, *},
     providers::{Http, Provider, ProviderExt, StreamExt, Ws},
     types::{Address, U64},
 };

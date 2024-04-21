@@ -7,38 +7,46 @@ pub use i_morpho_supply_collateral_callback::*;
     clippy::upper_case_acronyms,
     clippy::type_complexity,
     dead_code,
-    non_camel_case_types
+    non_camel_case_types,
 )]
 pub mod i_morpho_supply_collateral_callback {
     #[allow(deprecated)]
     fn __abi() -> ::ethers::core::abi::Abi {
         ::ethers::core::abi::ethabi::Contract {
             constructor: ::core::option::Option::None,
-            functions: ::core::convert::From::from([(
-                ::std::borrow::ToOwned::to_owned("onMorphoSupplyCollateral"),
-                ::std::vec![::ethers::core::abi::ethabi::Function {
-                    name: ::std::borrow::ToOwned::to_owned("onMorphoSupplyCollateral",),
-                    inputs: ::std::vec![
-                        ::ethers::core::abi::ethabi::Param {
-                            name: ::std::borrow::ToOwned::to_owned("assets"),
-                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
-                            internal_type: ::core::option::Option::Some(
-                                ::std::borrow::ToOwned::to_owned("uint256"),
+            functions: ::core::convert::From::from([
+                (
+                    ::std::borrow::ToOwned::to_owned("onMorphoSupplyCollateral"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::Function {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "onMorphoSupplyCollateral",
                             ),
-                        },
-                        ::ethers::core::abi::ethabi::Param {
-                            name: ::std::borrow::ToOwned::to_owned("data"),
-                            kind: ::ethers::core::abi::ethabi::ParamType::Bytes,
-                            internal_type: ::core::option::Option::Some(
-                                ::std::borrow::ToOwned::to_owned("bytes"),
-                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("assets"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("data"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Bytes,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("bytes"),
+                                    ),
+                                },
+                            ],
+                            outputs: ::std::vec![],
+                            constant: ::core::option::Option::None,
+                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
                         },
                     ],
-                    outputs: ::std::vec![],
-                    constant: ::core::option::Option::None,
-                    state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
-                },],
-            )]),
+                ),
+            ]),
             events: ::std::collections::BTreeMap::new(),
             errors: ::std::collections::BTreeMap::new(),
             receive: false,
@@ -80,11 +88,13 @@ pub mod i_morpho_supply_collateral_callback {
             address: T,
             client: ::std::sync::Arc<M>,
         ) -> Self {
-            Self(::ethers::contract::Contract::new(
-                address.into(),
-                IMORPHOSUPPLYCOLLATERALCALLBACK_ABI.clone(),
-                client,
-            ))
+            Self(
+                ::ethers::contract::Contract::new(
+                    address.into(),
+                    IMORPHOSUPPLYCOLLATERALCALLBACK_ABI.clone(),
+                    client,
+                ),
+            )
         }
         ///Calls the contract's `onMorphoSupplyCollateral` (0xb1022fdf) function
         pub fn on_morpho_supply_collateral(
@@ -98,8 +108,7 @@ pub mod i_morpho_supply_collateral_callback {
         }
     }
     impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
-        for IMorphoSupplyCollateralCallback<M>
-    {
+    for IMorphoSupplyCollateralCallback<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
@@ -115,9 +124,12 @@ pub mod i_morpho_supply_collateral_callback {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
-    #[ethcall(name = "onMorphoSupplyCollateral", abi = "onMorphoSupplyCollateral(uint256,bytes)")]
+    #[ethcall(
+        name = "onMorphoSupplyCollateral",
+        abi = "onMorphoSupplyCollateral(uint256,bytes)"
+    )]
     pub struct OnMorphoSupplyCollateralCall {
         pub assets: ::ethers::core::types::U256,
         pub data: ::ethers::core::types::Bytes,

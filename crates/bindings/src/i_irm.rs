@@ -7,7 +7,7 @@ pub use i_irm::*;
     clippy::upper_case_acronyms,
     clippy::type_complexity,
     dead_code,
-    non_camel_case_types
+    non_camel_case_types,
 )]
 pub mod i_irm {
     pub use super::super::shared_types::*;
@@ -18,91 +18,111 @@ pub mod i_irm {
             functions: ::core::convert::From::from([
                 (
                     ::std::borrow::ToOwned::to_owned("borrowRate"),
-                    ::std::vec![::ethers::core::abi::ethabi::Function {
-                        name: ::std::borrow::ToOwned::to_owned("borrowRate"),
-                        inputs: ::std::vec![
-                            ::ethers::core::abi::ethabi::Param {
-                                name: ::std::borrow::ToOwned::to_owned("marketParams"),
-                                kind: ::ethers::core::abi::ethabi::ParamType::Tuple(::std::vec![
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(256usize),
-                                ],),
-                                internal_type: ::core::option::Option::Some(
-                                    ::std::borrow::ToOwned::to_owned("struct MarketParams"),
-                                ),
-                            },
-                            ::ethers::core::abi::ethabi::Param {
-                                name: ::std::borrow::ToOwned::to_owned("market"),
-                                kind: ::ethers::core::abi::ethabi::ParamType::Tuple(::std::vec![
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                ],),
-                                internal_type: ::core::option::Option::Some(
-                                    ::std::borrow::ToOwned::to_owned("struct Market"),
-                                ),
-                            },
-                        ],
-                        outputs: ::std::vec![::ethers::core::abi::ethabi::Param {
-                            name: ::std::string::String::new(),
-                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
-                            internal_type: ::core::option::Option::Some(
-                                ::std::borrow::ToOwned::to_owned("uint256"),
-                            ),
-                        },],
-                        constant: ::core::option::Option::None,
-                        state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
-                    },],
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::Function {
+                            name: ::std::borrow::ToOwned::to_owned("borrowRate"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("marketParams"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Tuple(
+                                        ::std::vec![
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(256usize),
+                                        ],
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("struct MarketParams"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("market"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Tuple(
+                                        ::std::vec![
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                        ],
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("struct Market"),
+                                    ),
+                                },
+                            ],
+                            outputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::string::String::new(),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                            constant: ::core::option::Option::None,
+                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::NonPayable,
+                        },
+                    ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned("borrowRateView"),
-                    ::std::vec![::ethers::core::abi::ethabi::Function {
-                        name: ::std::borrow::ToOwned::to_owned("borrowRateView"),
-                        inputs: ::std::vec![
-                            ::ethers::core::abi::ethabi::Param {
-                                name: ::std::borrow::ToOwned::to_owned("marketParams"),
-                                kind: ::ethers::core::abi::ethabi::ParamType::Tuple(::std::vec![
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Address,
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(256usize),
-                                ],),
-                                internal_type: ::core::option::Option::Some(
-                                    ::std::borrow::ToOwned::to_owned("struct MarketParams"),
-                                ),
-                            },
-                            ::ethers::core::abi::ethabi::Param {
-                                name: ::std::borrow::ToOwned::to_owned("market"),
-                                kind: ::ethers::core::abi::ethabi::ParamType::Tuple(::std::vec![
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                    ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
-                                ],),
-                                internal_type: ::core::option::Option::Some(
-                                    ::std::borrow::ToOwned::to_owned("struct Market"),
-                                ),
-                            },
-                        ],
-                        outputs: ::std::vec![::ethers::core::abi::ethabi::Param {
-                            name: ::std::string::String::new(),
-                            kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
-                            internal_type: ::core::option::Option::Some(
-                                ::std::borrow::ToOwned::to_owned("uint256"),
-                            ),
-                        },],
-                        constant: ::core::option::Option::None,
-                        state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
-                    },],
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::Function {
+                            name: ::std::borrow::ToOwned::to_owned("borrowRateView"),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("marketParams"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Tuple(
+                                        ::std::vec![
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Address,
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(256usize),
+                                        ],
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("struct MarketParams"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("market"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Tuple(
+                                        ::std::vec![
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                            ::ethers::core::abi::ethabi::ParamType::Uint(128usize),
+                                        ],
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("struct Market"),
+                                    ),
+                                },
+                            ],
+                            outputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::string::String::new(),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                            constant: ::core::option::Option::None,
+                            state_mutability: ::ethers::core::abi::ethabi::StateMutability::View,
+                        },
+                    ],
                 ),
             ]),
             events: ::std::collections::BTreeMap::new(),
@@ -112,8 +132,9 @@ pub mod i_irm {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static IIRM_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> =
-        ::ethers::contract::Lazy::new(__abi);
+    pub static IIRM_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+        __abi,
+    );
     pub struct IIrm<M>(::ethers::contract::Contract<M>);
     impl<M> ::core::clone::Clone for IIrm<M> {
         fn clone(&self) -> Self {
@@ -143,7 +164,13 @@ pub mod i_irm {
             address: T,
             client: ::std::sync::Arc<M>,
         ) -> Self {
-            Self(::ethers::contract::Contract::new(address.into(), IIRM_ABI.clone(), client))
+            Self(
+                ::ethers::contract::Contract::new(
+                    address.into(),
+                    IIRM_ABI.clone(),
+                    client,
+                ),
+            )
         }
         ///Calls the contract's `borrowRate` (0x9451fed4) function
         pub fn borrow_rate(
@@ -166,7 +193,8 @@ pub mod i_irm {
                 .expect("method not found (this should never happen)")
         }
     }
-    impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>> for IIrm<M> {
+    impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
+    for IIrm<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
@@ -182,7 +210,7 @@ pub mod i_irm {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     #[ethcall(
         name = "borrowRate",
@@ -203,7 +231,7 @@ pub mod i_irm {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     #[ethcall(
         name = "borrowRateView",
@@ -222,7 +250,7 @@ pub mod i_irm {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     pub enum IIrmCalls {
         BorrowRate(BorrowRateCall),
@@ -233,12 +261,14 @@ pub mod i_irm {
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
             let data = data.as_ref();
-            if let Ok(decoded) = <BorrowRateCall as ::ethers::core::abi::AbiDecode>::decode(data) {
+            if let Ok(decoded) = <BorrowRateCall as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
                 return Ok(Self::BorrowRate(decoded));
             }
-            if let Ok(decoded) =
-                <BorrowRateViewCall as ::ethers::core::abi::AbiDecode>::decode(data)
-            {
+            if let Ok(decoded) = <BorrowRateViewCall as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
                 return Ok(Self::BorrowRateView(decoded));
             }
             Err(::ethers::core::abi::Error::InvalidData.into())
@@ -247,8 +277,12 @@ pub mod i_irm {
     impl ::ethers::core::abi::AbiEncode for IIrmCalls {
         fn encode(self) -> Vec<u8> {
             match self {
-                Self::BorrowRate(element) => ::ethers::core::abi::AbiEncode::encode(element),
-                Self::BorrowRateView(element) => ::ethers::core::abi::AbiEncode::encode(element),
+                Self::BorrowRate(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
+                Self::BorrowRateView(element) => {
+                    ::ethers::core::abi::AbiEncode::encode(element)
+                }
             }
         }
     }
@@ -281,7 +315,7 @@ pub mod i_irm {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     pub struct BorrowRateReturn(pub ::ethers::core::types::U256);
     ///Container type for all return fields from the `borrowRateView` function with signature `borrowRateView((address,address,address,address,uint256),(uint128,uint128,uint128,uint128,uint128,uint128))` and selector `0x8c00bf6b`
@@ -295,7 +329,7 @@ pub mod i_irm {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     pub struct BorrowRateViewReturn(pub ::ethers::core::types::U256);
 }

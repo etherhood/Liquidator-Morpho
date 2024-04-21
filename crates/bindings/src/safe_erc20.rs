@@ -7,7 +7,7 @@ pub use safe_erc20::*;
     clippy::upper_case_acronyms,
     clippy::type_complexity,
     dead_code,
-    non_camel_case_types
+    non_camel_case_types,
 )]
 pub mod safe_erc20 {
     #[allow(deprecated)]
@@ -19,45 +19,59 @@ pub mod safe_erc20 {
             errors: ::core::convert::From::from([
                 (
                     ::std::borrow::ToOwned::to_owned("SafeERC20FailedDecreaseAllowance"),
-                    ::std::vec![::ethers::core::abi::ethabi::AbiError {
-                        name: ::std::borrow::ToOwned::to_owned("SafeERC20FailedDecreaseAllowance",),
-                        inputs: ::std::vec![
-                            ::ethers::core::abi::ethabi::Param {
-                                name: ::std::borrow::ToOwned::to_owned("spender"),
-                                kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                                internal_type: ::core::option::Option::Some(
-                                    ::std::borrow::ToOwned::to_owned("address"),
-                                ),
-                            },
-                            ::ethers::core::abi::ethabi::Param {
-                                name: ::std::borrow::ToOwned::to_owned("currentAllowance"),
-                                kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
-                                internal_type: ::core::option::Option::Some(
-                                    ::std::borrow::ToOwned::to_owned("uint256"),
-                                ),
-                            },
-                            ::ethers::core::abi::ethabi::Param {
-                                name: ::std::borrow::ToOwned::to_owned("requestedDecrease"),
-                                kind: ::ethers::core::abi::ethabi::ParamType::Uint(256usize,),
-                                internal_type: ::core::option::Option::Some(
-                                    ::std::borrow::ToOwned::to_owned("uint256"),
-                                ),
-                            },
-                        ],
-                    },],
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "SafeERC20FailedDecreaseAllowance",
+                            ),
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("spender"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("currentAllowance"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("requestedDecrease"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Uint(
+                                        256usize,
+                                    ),
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("uint256"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
                 ),
                 (
                     ::std::borrow::ToOwned::to_owned("SafeERC20FailedOperation"),
-                    ::std::vec![::ethers::core::abi::ethabi::AbiError {
-                        name: ::std::borrow::ToOwned::to_owned("SafeERC20FailedOperation",),
-                        inputs: ::std::vec![::ethers::core::abi::ethabi::Param {
-                            name: ::std::borrow::ToOwned::to_owned("token"),
-                            kind: ::ethers::core::abi::ethabi::ParamType::Address,
-                            internal_type: ::core::option::Option::Some(
-                                ::std::borrow::ToOwned::to_owned("address"),
+                    ::std::vec![
+                        ::ethers::core::abi::ethabi::AbiError {
+                            name: ::std::borrow::ToOwned::to_owned(
+                                "SafeERC20FailedOperation",
                             ),
-                        },],
-                    },],
+                            inputs: ::std::vec![
+                                ::ethers::core::abi::ethabi::Param {
+                                    name: ::std::borrow::ToOwned::to_owned("token"),
+                                    kind: ::ethers::core::abi::ethabi::ParamType::Address,
+                                    internal_type: ::core::option::Option::Some(
+                                        ::std::borrow::ToOwned::to_owned("address"),
+                                    ),
+                                },
+                            ],
+                        },
+                    ],
                 ),
             ]),
             receive: false,
@@ -65,18 +79,21 @@ pub mod safe_erc20 {
         }
     }
     ///The parsed JSON ABI of the contract.
-    pub static SAFEERC20_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> =
-        ::ethers::contract::Lazy::new(__abi);
+    pub static SAFEERC20_ABI: ::ethers::contract::Lazy<::ethers::core::abi::Abi> = ::ethers::contract::Lazy::new(
+        __abi,
+    );
     #[rustfmt::skip]
     const __BYTECODE: &[u8] = b"`U`2`\x0B\x82\x82\x829\x80Q_\x1A`s\x14`&WcNH{q`\xE0\x1B_R_`\x04R`$_\xFD[0_R`s\x81S\x82\x81\xF3\xFEs\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R_\x80\xFD\xFE\xA2dipfsX\"\x12 \x0E\x92:CX$U\xDCD\xA8\xBD\xACr\xB7\xDE\xD7\x84sD\x90\xC4\xA7\xE2\xB4\x17\xD2i\xE3[\xA0\x074dsolcC\0\x08\x19\x003";
     /// The bytecode of the contract.
-    pub static SAFEERC20_BYTECODE: ::ethers::core::types::Bytes =
-        ::ethers::core::types::Bytes::from_static(__BYTECODE);
+    pub static SAFEERC20_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+        __BYTECODE,
+    );
     #[rustfmt::skip]
     const __DEPLOYED_BYTECODE: &[u8] = b"s\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x000\x14`\x80`@R_\x80\xFD\xFE\xA2dipfsX\"\x12 \x0E\x92:CX$U\xDCD\xA8\xBD\xACr\xB7\xDE\xD7\x84sD\x90\xC4\xA7\xE2\xB4\x17\xD2i\xE3[\xA0\x074dsolcC\0\x08\x19\x003";
     /// The deployed bytecode of the contract.
-    pub static SAFEERC20_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes =
-        ::ethers::core::types::Bytes::from_static(__DEPLOYED_BYTECODE);
+    pub static SAFEERC20_DEPLOYED_BYTECODE: ::ethers::core::types::Bytes = ::ethers::core::types::Bytes::from_static(
+        __DEPLOYED_BYTECODE,
+    );
     pub struct SafeERC20<M>(::ethers::contract::Contract<M>);
     impl<M> ::core::clone::Clone for SafeERC20<M> {
         fn clone(&self) -> Self {
@@ -106,7 +123,13 @@ pub mod safe_erc20 {
             address: T,
             client: ::std::sync::Arc<M>,
         ) -> Self {
-            Self(::ethers::contract::Contract::new(address.into(), SAFEERC20_ABI.clone(), client))
+            Self(
+                ::ethers::contract::Contract::new(
+                    address.into(),
+                    SAFEERC20_ABI.clone(),
+                    client,
+                ),
+            )
         }
         /// Constructs the general purpose `Deployer` instance based on the provided constructor arguments and sends it.
         /// Returns a new instance of a deployer that returns an instance of this contract after sending the transaction
@@ -148,7 +171,8 @@ pub mod safe_erc20 {
             Ok(deployer)
         }
     }
-    impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>> for SafeERC20<M> {
+    impl<M: ::ethers::providers::Middleware> From<::ethers::contract::Contract<M>>
+    for SafeERC20<M> {
         fn from(contract: ::ethers::contract::Contract<M>) -> Self {
             Self::new(contract.address(), contract.client())
         }
@@ -164,7 +188,7 @@ pub mod safe_erc20 {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     #[etherror(
         name = "SafeERC20FailedDecreaseAllowance",
@@ -186,9 +210,12 @@ pub mod safe_erc20 {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
-    #[etherror(name = "SafeERC20FailedOperation", abi = "SafeERC20FailedOperation(address)")]
+    #[etherror(
+        name = "SafeERC20FailedOperation",
+        abi = "SafeERC20FailedOperation(address)"
+    )]
     pub struct SafeERC20FailedOperation {
         pub token: ::ethers::core::types::Address,
     }
@@ -201,7 +228,7 @@ pub mod safe_erc20 {
         Debug,
         PartialEq,
         Eq,
-        Hash,
+        Hash
     )]
     pub enum SafeERC20Errors {
         SafeERC20FailedDecreaseAllowance(SafeERC20FailedDecreaseAllowance),
@@ -215,19 +242,19 @@ pub mod safe_erc20 {
             data: impl AsRef<[u8]>,
         ) -> ::core::result::Result<Self, ::ethers::core::abi::AbiError> {
             let data = data.as_ref();
-            if let Ok(decoded) =
-                <::std::string::String as ::ethers::core::abi::AbiDecode>::decode(data)
-            {
+            if let Ok(decoded) = <::std::string::String as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
                 return Ok(Self::RevertString(decoded));
             }
-            if let Ok(decoded) =
-                <SafeERC20FailedDecreaseAllowance as ::ethers::core::abi::AbiDecode>::decode(data)
-            {
+            if let Ok(decoded) = <SafeERC20FailedDecreaseAllowance as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
                 return Ok(Self::SafeERC20FailedDecreaseAllowance(decoded));
             }
-            if let Ok(decoded) =
-                <SafeERC20FailedOperation as ::ethers::core::abi::AbiDecode>::decode(data)
-            {
+            if let Ok(decoded) = <SafeERC20FailedOperation as ::ethers::core::abi::AbiDecode>::decode(
+                data,
+            ) {
                 return Ok(Self::SafeERC20FailedOperation(decoded));
             }
             Err(::ethers::core::abi::Error::InvalidData.into())
@@ -268,7 +295,9 @@ pub mod safe_erc20 {
                 Self::SafeERC20FailedDecreaseAllowance(element) => {
                     ::core::fmt::Display::fmt(element, f)
                 }
-                Self::SafeERC20FailedOperation(element) => ::core::fmt::Display::fmt(element, f),
+                Self::SafeERC20FailedOperation(element) => {
+                    ::core::fmt::Display::fmt(element, f)
+                }
                 Self::RevertString(s) => ::core::fmt::Display::fmt(s, f),
             }
         }

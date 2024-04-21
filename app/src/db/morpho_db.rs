@@ -3,8 +3,8 @@ use ethers::prelude::*;
 use eyre::{Ok, Result};
 use log::info;
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
 use std::{
+    collections::HashMap,
     fs::{write, File},
     io::{BufReader, Read},
 };
