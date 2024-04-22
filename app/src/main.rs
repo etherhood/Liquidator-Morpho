@@ -15,6 +15,7 @@ use bindings::{
     },
     liquidator::Liquidator,
 };
+use dotenv::dotenv;
 use ethers::{
     abi::RawLog,
     prelude::{Middleware, *},
@@ -26,29 +27,28 @@ use log::{error, info, warn};
 use std::sync::Arc;
 
 const MORPHO_ADDRESS: &str = "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb";
-const LIQUIDATOR_ADDRESS: &str = "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb";
-const WSS_RPC_URL: &str = "wss://eth-mainnet.g.alchemy.com/v2/F2A2PZLD8eDZIMXdNXR09CHaaTBl1uy0";
-const HTTP_RPC_URL: &str = "https://eth-pokt.nodies.app";
-const FILE_NAME: &str = "morpho.json";
 const BLOCK_START: u64 = 18883124;
 
 #[tokio::main]
 async fn main() -> Result<()> {
     env_logger::init();
+    dotenv().ok();
 
-    let provider = Provider::<Ws>::connect(WSS_RPC_URL).await?;
-    let http_provider = Provider::<Http>::try_connect(HTTP_RPC_URL).await?;
+    let config = Config::build()?;
+
+    let provider = Provider::<Ws>::connect(config.wss_rpc_url.to_owned()).await?;
+    let http_provider = Provider::<Http>::try_connect(&config.http_rpc_url).await?;
 
     let client = Arc::new(provider);
 
     let http_client = Arc::new(http_provider);
 
-    let mut db: MorphoDB = MorphoDB::load_memory_db(FILE_NAME)?;
+    let mut db: MorphoDB = MorphoDB::load_memory_db(&config.file_name)?;
 
-    let last_block = sync_to_lastest_block(&mut db, http_client.clone()).await?;
+    let last_block = sync_to_lastest_block(&config, &mut db, http_client.clone()).await?;
     info!("Last block: {last_block}");
 
-    let result = subscribe(&client, &mut db, last_block.into(), &http_client).await;
+    let result = subscribe(&config, &client, &mut db, last_block.into(), &http_client).await;
 
     match result {
         Ok(_) => info!("Listening completed"),
@@ -59,6 +59,7 @@ async fn main() -> Result<()> {
 }
 
 async fn subscribe(
+    config: &Config,
     ws_client: &Arc<Provider<Ws>>,
     db: &mut MorphoDB,
     block_number: U64,
@@ -88,7 +89,7 @@ async fn subscribe(
             },
             block = new_block_stream.next() => {
                 info!("New block received: {:?}", block.unwrap().number.unwrap());
-                let result = process_new_block(db, client).await;
+                let result = process_new_block(config, db, client).await;
                 match result {
                     Ok(_) => info!("Successfully processed block"),
                     Err(e) => error!("Error while processing block: {:?}", e)
@@ -145,12 +146,17 @@ fn process_event(event: IMorphoEvents, db: &mut MorphoDB) -> Result<()> {
     Ok(())
 }
 
-async fn process_new_block(db: &MorphoDB, client: &Arc<Provider<Http>>) -> Result<()> {
+async fn process_new_block(
+    config: &Config,
+    db: &MorphoDB,
+    client: &Arc<Provider<Http>>,
+) -> Result<()> {
     let oracle_prices = db.get_all_markets().fetch_prices(client.clone()).await?;
 
     let market_ids = db.get_all_market_ids();
 
-    let liquidator = Liquidator::new(LIQUIDATOR_ADDRESS.parse::<Address>()?, client.to_owned());
+    let liquidator =
+        Liquidator::new(config.liquidator_address.parse::<Address>()?, client.to_owned());
 
     for market_id in market_ids {
         let market_info = db.get_market(&market_id);
@@ -194,7 +200,11 @@ async fn process_new_block(db: &MorphoDB, client: &Arc<Provider<Http>>) -> Resul
     Ok(())
 }
 
-async fn sync_to_lastest_block(db: &mut MorphoDB, client: Arc<Provider<Http>>) -> Result<u64> {
+async fn sync_to_lastest_block(
+    config: &Config,
+    db: &mut MorphoDB,
+    client: Arc<Provider<Http>>,
+) -> Result<u64> {
     let current_block: u64 = client.get_block_number().await.unwrap().try_into().unwrap();
 
     let mut start_block =
@@ -294,7 +304,29 @@ async fn sync_to_lastest_block(db: &mut MorphoDB, client: Arc<Provider<Http>>) -
 
     db.last_block_sync = current_block;
 
-    db.write_memory_db(FILE_NAME)?;
+    db.write_memory_db(&config.file_name)?;
 
     Ok(current_block)
+}
+
+struct Config {
+    wss_rpc_url: String,
+    http_rpc_url: String,
+    file_name: String,
+    liquidator_address: String,
+}
+
+impl Config {
+    fn build() -> Result<Self> {
+        Ok(Config {
+            wss_rpc_url: get_from_config("WSS_RPC_URL".to_string())?,
+            http_rpc_url: get_from_config("HTTP_RPC_URL".to_string())?,
+            file_name: get_from_config("FILE_NAME".to_string())?,
+            liquidator_address: get_from_config("LIQUIDATOR_ADDRESS".to_string())?,
+        })
+    }
+}
+
+fn get_from_config(key: String) -> Result<String> {
+    Ok(std::env::var(key)?)
 }

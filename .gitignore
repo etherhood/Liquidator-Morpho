@@ -2,3 +2,4 @@
 out/
 cache/
 Cargo.lock
+.env

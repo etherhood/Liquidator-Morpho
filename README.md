@@ -6,7 +6,7 @@
 `app/` folder contains rust repo which index all events from morpho contracts and write it to local morpho.json file and then start listening to new events and new block. Whenever it encounters new positions which are unhealthy, it triggers liquidation for that position using `Liquidator` contract 
 
 # Todo
-- [ ] Abstract out constants to `env` args which can be passed at start time
+- [x] Abstract out constants to `env` args which can be passed at start time
 - [ ] Integrate 1inch or other solver APIs to fetch swap route when liquidating
 - [ ] Add signer support for provider which send liquidator transaction
 - [ ] Add flashbots support to not allow frontrunning
