@@ -155,8 +155,16 @@ async fn process_new_block(
 
     let market_ids = db.get_all_market_ids();
 
-    let liquidator =
-        Liquidator::new(config.liquidator_address.parse::<Address>()?, client.to_owned());
+    let wallet: LocalWallet = get_from_config("PRIVATE_KEY".to_string())?
+        .parse::<LocalWallet>()?
+        .with_chain_id(Chain::Mainnet);
+
+    let private_client = Arc::new(SignerMiddleware::new(
+        Provider::<Http>::try_connect(&config.private_rpc).await?,
+        wallet,
+    ));
+
+    let liquidator = Liquidator::new(config.liquidator_address.parse::<Address>()?, private_client);
 
     for market_id in market_ids {
         let market_info = db.get_market(&market_id);
@@ -314,6 +322,7 @@ struct Config {
     http_rpc_url: String,
     file_name: String,
     liquidator_address: String,
+    private_rpc: String,
 }
 
 impl Config {
@@ -323,6 +332,7 @@ impl Config {
             http_rpc_url: get_from_config("HTTP_RPC_URL".to_string())?,
             file_name: get_from_config("FILE_NAME".to_string())?,
             liquidator_address: get_from_config("LIQUIDATOR_ADDRESS".to_string())?,
+            private_rpc: get_from_config("PRIVATE_RPC".to_string())?,
         })
     }
 }

@@ -2,14 +2,20 @@ use bindings::{
     i_morpho::{Market, MarketParams, Position},
     liquidator::Liquidator,
 };
-use ethers::prelude::*;
+use ethers::{
+    core::k256::ecdsa::SigningKey,
+    middleware::SignerMiddleware,
+    providers::{Http, Provider},
+    signers::Wallet,
+    types::Address,
+};
 use eyre::Result;
 use log::{info, warn};
 
 use super::swapper::find_swap_params;
 
 pub async fn trigger_liquidation(
-    liquidator: &Liquidator<Provider<Http>>,
+    liquidator: &Liquidator<SignerMiddleware<Provider<Http>, Wallet<SigningKey>>>,
     user: &Address,
     position: &Position,
     market_params: &MarketParams,
